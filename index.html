@@ -1,7 +1,20 @@
 ---
 sections:
-    - heading: Section 0
-      ref: sec0
+  - heading: 'Section 0'
+    ref: 'sec0'
+    title: 'Content'
+  - heading: 'Section 1'
+    ref: 'sec1'
+    title: 'Content'
+  - heading: 'Section 2'
+    ref: 'sec2'
+    title: 'Section 2'
+  - heading: 'Section 3'
+    ref: 'sec3'
+    title: 'Section 3'
+  - heading: 'Section 4'
+    ref: 'sec4'
+    title: 'Section 4'    
 
 ---
 <!DOCTYPE html>
@@ -79,11 +92,11 @@ sections:
         <!--left-->
         <div class="col-md-3" id="leftCol">
             <ul class="nav nav-stacked" id="sidebar">
-                <li><a href="#sec0">Section 0</a></li>
-                <li><a href="#sec1">Section 1</a></li>
-                <li><a href="#sec2">Section 2</a></li>
-                <li><a href="#sec3">Section 3</a></li>
-                <li><a href="#sec4">Section 4</a></li>
+                {% for item in page.sections %}
+                {%   assign ref = item['ref'] %}
+                {%   assign heading = item['heading'] %}
+                <li><a href="#{{ref}}">{{heading}}</a></li>
+                {% endfor %}
             </ul>
         </div><!--/left-->
       
