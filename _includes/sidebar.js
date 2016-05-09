@@ -1,4 +1,4 @@
-$(document).ready(function(){/* activate sidebar */
+ $(document).ready(function(){/* activate sidebar */
     $('#sidebar').affix({
         offset: {
             top: 235
