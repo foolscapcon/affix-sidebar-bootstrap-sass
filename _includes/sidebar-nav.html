@@ -1,0 +1,9 @@
+<div class="col-md-3" id="leftCol">
+    <ul class="nav nav-stacked" id="sidebar">
+        {% for item in page.sections %}
+        {%   assign ref = item['ref'] %}
+        {%   assign heading = item['heading'] %}
+        <li><a href="#{{ref}}">{{heading}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
