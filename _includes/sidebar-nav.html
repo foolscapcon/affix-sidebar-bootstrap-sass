@@ -13,24 +13,18 @@
 	        Some text here
             </div>
         </div><!--/masthead-->
-        <!-- /brand TODO: how to generate markdown matching href-->
-        {{page.sections}}
+        <!-- /brand -->
         {% for item in page.sections %}
-        forloop.index = {{ forloop.index }}
+<!-- forloop.index = {{ forloop.index }} {{item}} -->
         {%   assign heading = item['heading'] %}
         {%   if item['ref'] %}
         {%     assign ref = item['ref'] %}
-               ref = {{ref}}                        
         {%   else %}
-               {#{{ heading }}}        
-        {%     capture ref %}
-## {{ heading }}
-        {%     endcapture %}
-               ref|markdownify = {{ref|markdownify}}                
+        {%     capture slug %}{{ heading | trim | slugify }}{% endcapture %}
+        {%   assign ref = slug %}
         {%   endif %}
-
-        {%   if item['title] %}
-        {%     assign ref = item['title] %}
+        {%   if item['title'] %}
+        {%     assign title = item['title] %}
         {%   else %}
         {%     assign title = heading %}
         {%   endif %}        

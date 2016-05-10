@@ -43,10 +43,10 @@
                 
                 <!--right-->
                 <div class="col-md-9">
-                    {% capture md %}
-                    {%   include landing-content.md %}
-                    {% endcapture %}
-                    {{ md | markdownify }}
+                    {% capture md %}{% include landing-content.md %}{% endcapture %}
+                    <!--markdown content-->                    
+                    {{ md|markdownify }}
+                    <!--/markdown content-->                    
                 </div><!--/right-->
   	    </div><!--/row-->
         </div><!--/container-->
