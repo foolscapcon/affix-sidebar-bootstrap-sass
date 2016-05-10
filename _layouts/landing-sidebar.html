@@ -32,29 +32,7 @@
             </div>
         </nav>
 
-        <div id="masthead">  
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h1>Bootstrap Sidebar
-                            <p class="lead">With Affix and Scrollspy</p>
-                        </h1>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="well well-lg"> 
-                            <div class="row">
-                                <div class="col-sm-6">
-        	      	            <img src="//placehold.it/180x100" class="img-responsive">
-                                </div>
-                                <div class="col-sm-6">
-	              	            Some text here
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div><!--/container-->
-        </div><!--/masthead-->
+
 
         <!--main-->
         <div class="container">
@@ -65,8 +43,10 @@
                 
                 <!--right-->
                 <div class="col-md-9">
-                    {% include landing-content.md | markdownify %}
-
+                    {% capture md %}
+                    {%   include landing-content.md %}
+                    {% endcapture %}
+                    {{ md | markdownify }}
                 </div><!--/right-->
   	    </div><!--/row-->
         </div><!--/container-->
