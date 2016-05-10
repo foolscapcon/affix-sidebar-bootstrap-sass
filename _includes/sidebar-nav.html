@@ -14,26 +14,26 @@
             </div>
         </div><!--/masthead-->
         <!-- /brand TODO: how to generate markdown matching href-->
+        {{page.sections}}
         {% for item in page.sections %}
+        forloop.index = {{ forloop.index }}
         {%   assign heading = item['heading'] %}
-        {{ heading }}
-        {{ heading | handle }}
-        {{ "section 0" | handle }}
-        {% if item['ref'] %}
-        {%   assign ref = item['ref'] %}
-        {% else %}
-        {%   capture ref %}
-        {{ heading | handle }}
-        {%   endcapture %}
-        {% endif %}
-        {% if item['title] %}
-        {%   assign ref = item['title] %}
-        {% else %}
-        {%   capture title %}
-        {{ heading | handle }}
-        {%   endcapture %}
-        {% endif %}        
+        {%   if item['ref'] %}
+        {%     assign ref = item['ref'] %}
+               ref = {{ref}}                        
+        {%   else %}
+               {#{{ heading }}}        
+        {%     capture ref %}
+## {{ heading }}
+        {%     endcapture %}
+               ref|markdownify = {{ref|markdownify}}                
+        {%   endif %}
 
+        {%   if item['title] %}
+        {%     assign ref = item['title] %}
+        {%   else %}
+        {%     assign title = heading %}
+        {%   endif %}        
         <li><a href="#{{ref}}">{{heading}}</a></li>
         {% endfor %}
     </ul>
